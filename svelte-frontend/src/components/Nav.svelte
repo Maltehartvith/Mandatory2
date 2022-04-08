@@ -5,6 +5,9 @@
     import About from "../pages/About.svelte";
     import Contact from "../pages/Contact.svelte";
     import Cart from "../pages/Cart.svelte";
+    import Singlebeer from "../pages/Singlebeer.svelte";
+    
+    
 
 </script>
 
@@ -46,7 +49,7 @@
             <Route path="/infopage" component={Infopage} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
-            
+            <Route path="/singlebeer/:name" component={Singlebeer} />
         </Router>
     </div>
 

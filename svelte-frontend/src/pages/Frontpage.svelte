@@ -1,28 +1,39 @@
 <script>
-    import { store } from "../store/generalStore.js";
     import { Route, Router, Link } from "svelte-navigator";
-    import SingleBeer from "./Singlebeer.svelte";
+    import Singlebeer from "./Singlebeer.svelte";
+    import { onMount } from "svelte";
+
+    let beers = [];
+
+    
+
+    onMount(async () => {
+        const response = await fetch("/api/beers");
+        const { data: beersArray } = await response.json();
+        beers = beersArray;
+    });
+    
+    
 </script>
 
 <div class="row">
-    {#each $store.products as product}
+    {#each beers as beer}
         <div class="column">
             <Router primary={false}>
-                <Link to="/singlebeer/{product.id}">
-                <br />
-                <img
-                    src={product.imgPath}
-                    alt={product.name}
-                    width="50%"
-                    height="50%"
-                />
-                <br />
-                <span>{product.name}</span>
-                <br />
-                <span>{product.price} kr</span>
+                <Link to="/singlebeer/{beer.name}" id={beer.name}>
+                    <br />
+                    <img
+                        src={beer.imgpath}
+                        alt={beer.name}
+                        width="50%"
+                        height="50%"
+                    />
+                    <br />
+                    <span>{beer.name}</span>
+                    <br />
+                    <span>{beer.price} kr</span>
                 </Link>
-
-                <Route path="/singlebeer/{product.id}" component={SingleBeer} />
+                <Route path="/singlebeer/{beer.name}" component={Singlebeer} />
             </Router>
         </div>
     {/each}
