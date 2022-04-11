@@ -4,7 +4,7 @@
 </script>
 
 <main>
-	<img src="./bottles.jpg" alt="bottles">
+	<img src="./images/bottles.jpg" alt="bottles">
 	
 	<h1>Static beers</h1>
 	<Nav/>

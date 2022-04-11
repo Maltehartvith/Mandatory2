@@ -14,7 +14,7 @@
 <nav>
     <div class="cart">
         <Router primary={false}>
-            <Link to="/cart"><img src="./PinClipart.com_supermarket-clipart_4857762.png" alt="cartlol" width="5%" height="5%"/></Link>
+            <Link to="/cart"><img src="./images/PinClipart.com_supermarket-clipart_4857762.png" alt="cartlol" width="5%" height="5%"/></Link>
             <Route path="/cart" component={Cart} />
         </Router> 
         

@@ -1,3 +1,3 @@
 import {writable} from "svelte/store";
 
-export const basket = writable( { products: [] } );
+export const cart = writable( { products: [] } );
