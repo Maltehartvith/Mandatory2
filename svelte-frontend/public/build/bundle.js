@@ -1594,7 +1594,7 @@ var app = (function () {
     			attr_dev(div, "aria-atomic", "true");
     			attr_dev(div, "aria-live", "polite");
     			attr_dev(div, "style", visuallyHiddenStyle);
-    			add_location(div, file$9, 195, 1, 5906);
+    			add_location(div, file$9, 195, 1, 6101);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1640,7 +1640,7 @@ var app = (function () {
     			set_style(div, "display", "none");
     			attr_dev(div, "aria-hidden", "true");
     			attr_dev(div, "data-svnav-router", /*routerId*/ ctx[3]);
-    			add_location(div, file$9, 190, 0, 5750);
+    			add_location(div, file$9, 190, 0, 5940);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2612,11 +2612,11 @@ var app = (function () {
     			set_style(div0, "display", "none");
     			attr_dev(div0, "aria-hidden", "true");
     			attr_dev(div0, "data-svnav-route-start", /*id*/ ctx[5]);
-    			add_location(div0, file$8, 95, 0, 2622);
+    			add_location(div0, file$8, 95, 0, 2717);
     			set_style(div1, "display", "none");
     			attr_dev(div1, "aria-hidden", "true");
     			attr_dev(div1, "data-svnav-route-end", /*id*/ ctx[5]);
-    			add_location(div1, file$8, 121, 0, 3295);
+    			add_location(div1, file$8, 121, 0, 3416);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2944,7 +2944,7 @@ var app = (function () {
     			a = element("a");
     			if (default_slot) default_slot.c();
     			set_attributes(a, a_data);
-    			add_location(a, file$7, 63, 0, 1735);
+    			add_location(a, file$7, 63, 0, 1798);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3249,20 +3249,20 @@ var app = (function () {
     			t3 = space();
     			button = element("button");
     			button.textContent = "Tilføj";
-    			add_location(h1, file$6, 42, 0, 1114);
+    			add_location(h1, file$6, 38, 0, 1094);
     			if (!src_url_equal(img.src, img_src_value = /*imgFilePath*/ ctx[1])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "beer img");
     			attr_dev(img, "width", "50%");
     			attr_dev(img, "height", "50%");
-    			add_location(img, file$6, 43, 0, 1136);
+    			add_location(img, file$6, 39, 0, 1116);
     			attr_dev(input, "type", "number");
     			input.value = "1";
     			attr_dev(input, "min", "1");
     			attr_dev(input, "width", "10%");
     			attr_dev(input, "id", "quantity");
-    			add_location(input, file$6, 45, 0, 1210);
-    			add_location(button, file$6, 46, 0, 1271);
-    			add_location(label, file$6, 44, 0, 1201);
+    			add_location(input, file$6, 42, 0, 1192);
+    			add_location(button, file$6, 43, 0, 1253);
+    			add_location(label, file$6, 41, 0, 1183);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4684,11 +4684,11 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = "./images/bottles.jpg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "bottles");
     			attr_dev(img, "class", "svelte-1t3wqw8");
-    			add_location(img, file, 6, 1, 126);
+    			add_location(img, file, 9, 1, 132);
     			attr_dev(h1, "class", "svelte-1t3wqw8");
-    			add_location(h1, file, 8, 1, 178);
+    			add_location(h1, file, 11, 1, 184);
     			attr_dev(main, "class", "svelte-1t3wqw8");
-    			add_location(main, file, 5, 0, 117);
+    			add_location(main, file, 8, 0, 123);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

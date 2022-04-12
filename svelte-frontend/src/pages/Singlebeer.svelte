@@ -8,11 +8,7 @@
     let searchName = myUrl.slice(myUrl.lastIndexOf('/') + 1)
     const beerName = searchName.replace("%20", " ");
 
-    
 
-    
-
-    
     onMount(async () => {
         const response = await fetch(`/api/beers/${beerName}`);
         const { data: singleBeer } = await response.json();
@@ -42,6 +38,7 @@
 
 <h1>{beer.name}</h1>
 <img src={imgFilePath} alt="beer img" width="50%" height="50%">
+
 <label>
 <input type=number value=1 min=1 width="10%" id="quantity">
 <button on:click={ () => addToCart(beer)}>Tilføj</button>

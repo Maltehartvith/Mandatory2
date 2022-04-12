@@ -1,6 +1,9 @@
 <script>
+
+
 	import Nav from "./components/Nav.svelte"
 	import { store } from "./store/generalStore.js"
+
 </script>
 
 <main>
