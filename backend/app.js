@@ -13,7 +13,9 @@ app.use("/api", helmet());
 import beersRouter from "./router/beersRouter.js";
 app.use(beersRouter);
 
+
 app.get('*', (req, res) => res.sendFile(path.resolve('../svelte-frontend/public/index.html')));
+
 
 const PORT = process.env.PORT || 3000;
 

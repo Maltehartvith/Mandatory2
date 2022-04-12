@@ -22,7 +22,7 @@ if (isInDeleteMode){
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Pilser 2', 5, 'En klassisk pilser', './images/bottles.jpg');");
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('IPA', 18, 'En frugtig øl med massere af smag', './images/ipa.png');");
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Tuborg', 3.5, 'En klassisk pilser', './images/tuborg.png');");
-    db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Carlsberg', 4, 'En kedelig klassisk pilser', './images/carlsberg.webp');");
+    db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Carlsberg', 4, 'En kedelig klassisk pilser', './images/carlsberg.png');");
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Fynsk forår', 12.5, 'Har en let smag af hyldeblomst og forår', './images/fynskforaar.png');");
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Årgangsøl', 16.75, 'Kan godt gå hen og blive lidt for sur', './images/bottles.jpg');");
 
