@@ -2,6 +2,7 @@
 
 
 	import Nav from "./components/Nav.svelte"
+	import { cart } from "./store/cart.js"
 
 </script>
 
@@ -19,6 +20,7 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
+		font-family: Consolas;
 		
 	}
 

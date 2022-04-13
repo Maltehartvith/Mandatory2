@@ -21,7 +21,8 @@ router.get("/api/beers/:name", async (req, res) => {
 
 router.post("/api/beers", async (req, res) => {
     const { name, price, description, imgPath } = req.body;
-    const { changes } = await db.run(`INSERT INTO players (name, price, description, imgPath) VALUES ('?', ?, '?');`, [name, price, description, imgPath]);
+    const { changes } = await db.run(`INSERT INTO players (name, price, description, imgPath) 
+    VALUES ('?', ?, '?');`, [name, price, description, imgPath]);
     res.send({ rowsAffected: changes });
 });
 

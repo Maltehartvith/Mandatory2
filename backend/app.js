@@ -13,6 +13,8 @@ app.use("/api", helmet());
 import beersRouter from "./router/beersRouter.js";
 app.use(beersRouter);
 
+import userRouter from "./router/userRouter.js";
+app.use(userRouter);
 
 app.get('*', (req, res) => res.sendFile(path.resolve('../svelte-frontend/public/index.html')));
 
