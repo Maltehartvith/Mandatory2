@@ -2,9 +2,12 @@
     import { Route, Router, Link } from "svelte-navigator";
     import Singlebeer from "./Singlebeer.svelte";
     import { onMount } from "svelte";
+    import { isLoggedIn } from "../components/Isloggedin.js"
+    isLoggedIn()
 
     let beers = [];
-    
+    const sotre = localStorage.getItem("lel123oeiFårdenIkkeISmå!¤%Bavianer");
+    console.log("den her", sotre)
     
 
     onMount(async () => {
@@ -32,8 +35,7 @@
                     <span>{beer.name}</span>
                     <br />
                     <span>{beer.price} kr</span>
-                </Link>
-                
+                </Link>        
             </Router>
         </div>
     {/each}
@@ -45,8 +47,6 @@
         flex-wrap: wrap;
         justify-content: space-around;
         max-width: 600px;
-        
-        
     }
 
     .column {

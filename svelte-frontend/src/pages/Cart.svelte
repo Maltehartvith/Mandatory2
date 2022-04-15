@@ -1,5 +1,7 @@
 <script>
     import { cart } from "../store/cart.js";
+    import { isLoggedIn } from "../components/Isloggedin.js"
+    isLoggedIn()
 
     let cartArray = $cart.products;
 
@@ -22,12 +24,13 @@
     }
 
     //hælp
-    function confirmDelete(id) {
+   function confirmDelete(id) {
         cart.update((cartValue) => {
-            cartValue.products = cartValue.products.filter(
-                (beer) => beer.product.id != id
+            cartValue.products = cartValue.products.filter((beer) => beer.product.id != id
+                
             );
             cartArray = $cart.products;
+            console.log(cartArray)
             totalPriceCalc();
             hideModal();
             return cartValue;
@@ -51,14 +54,14 @@ console.log($cart.products)
     {#each $cart.products as p}
         <tr>
             <td class="img-class">
-                <img src={p.product.imgpath} alt={"picture"} />
-                
-                
+                <img 
+                    src={p.product.imgpath} 
+                    alt={"picture"} 
+                />            
             </td>
-            <!--Hertil -->
+    
             <td class="product-name">
-                {p.product.name}
-                
+                {p.product.name} 
                 <button
                     on:click={() => {
                         createModalClass = "shown-modal";
@@ -70,20 +73,16 @@ console.log($cart.products)
                 </button>
             </td>
 
-            <td class="quantity-class">
-                
+            <td class="quantity-class"> 
                     <input
                         type="number"
                         bind:value={p.amount}
                         min="1"
                         id="quantity"
                         on:change={totalPriceCalc}
-                    />
-            
+                    />           
             </td>
-
-            <td class="price-class">{p.product.price} kr</td>
-            
+            <td class="price-class">{p.product.price} kr</td>            
         </tr>
     {/each}
     <tr>

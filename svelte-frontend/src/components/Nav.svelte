@@ -1,5 +1,5 @@
 <script>
-    import { Route, Router, Link } from "svelte-navigator";
+    import { Route, Router, Link, navigate } from "svelte-navigator";
     import Frontpage from "../pages/Frontpage.svelte";
     import Infopage from "../pages/Infopage.svelte";
     import About from "../pages/About.svelte";
@@ -10,26 +10,54 @@
     import { onDestroy } from 'svelte';
     import { cart } from "../store/cart.js"
     import Signup from "../pages/Signup.svelte"
-    import PrivateRouteGuard from "../privateRouter/PrivateRouteGuard.svelte";
-
-    let cartArray = $cart.products;
-    let totalAmount = 0;
+	import { isLoggedIn } from "./Isloggedin.js"
+    import { thePrivitizer } from "../privateRouter/PrivateRouteGuard.js";
+    isLoggedIn
     
+    let user = localStorage.getItem(thePrivitizer);
+    console.log(user)
 
+    console.log(localStorage.getItem(thePrivitizer))
+    let totalAmount = 0;
+    displayUsername()
+
+    //umuligt
+    function displayUsername(){
+        debugger
+        const display = document.getElementById("display-username");
+        if (user !== null)
+        display.innerText = user;
+        if( user === null)
+        display.value = `You are not logged in`;
+    }
+    
     const unsubscribe = cart.subscribe(p => {
         totalAmount = 0;
-        cartArray.forEach( p => {
+        $cart.products.forEach( p => {
             let sum = p.amount;
             totalAmount += Number(sum);
         });
 	});
-
-    
+  
 	onDestroy(unsubscribe);
 </script>
 
 <nav>
     <Router primary={false}>
+        <div class="login-cart-container"> 
+        <div class="login-class">
+            <Link to="/login">
+                <img
+                    src="./images/Sample_User_Icon.png"
+                    alt="userlol"
+                    height="auto"
+                    width="60px"
+                />
+                
+            </Link>
+            <p id="display-username">
+            </p>
+        </div>
 
         <div class="cart">
             {#if totalAmount > 0}
@@ -40,16 +68,18 @@
             </span>
             {/if}
             <br>
-            <Link to="/cart"
-                ><img
+            
+            <Link to="/cart">
+                <img
                     src="./images/PinClipart.com_supermarket-clipart_4857762.png"
                     alt="cartlol"
-                    width="5%"
-                    height="5%"
-                /></Link
-            >
-
+                    height="auto"
+                    width="50px"
+                />
+            </Link>
         </div>
+    </div>
+        
 
         <div class="full-nav-bar">
 
@@ -71,7 +101,7 @@
             </div>
 
             <div class="nav-button">
-                <Link to="/login">Login</Link>
+                <Link to="/signup">Signup</Link>
             </div>
             
             <Route path="/" component={Frontpage} />
@@ -79,7 +109,6 @@
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/singlebeer/:name" component={Singlebeer} />
-            
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/cart" component={Cart} />
@@ -89,7 +118,7 @@
 </nav>
 
 <style>
-    .full-nav-bar {
+    .full-nav-bar{
         flex: 1;
         width: fit-content;
         position: absolute;
@@ -104,20 +133,28 @@
         background-color: white;
     }
 
-    .cart {
-        flex: 1;
+    .cart, .login-class{
+        float: right;
+    }
+
+    .login-class{
+        float:left;
+        margin-top: 10px;
+    }
+
+    .login-cart-container{
         position: absolute;
-        right: 10%;
-        top: 5%;
-        transform: translateX(50%);
-        text-align: center;
+        width: 140px;
+        max-height: 40px;
+        right:30%;
+        top: 9%;
+        transform: translateX(100%) translateY(-50%);    
     }
 
     .counter {
         flex: 1;
         position: absolute;
-        right: 48%;
-        top: 25%;
+        top: 30%;
         transform: translateX(50%);
         border: 1px solid black;
         width: fit-content;

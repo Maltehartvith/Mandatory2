@@ -3,8 +3,7 @@ import { Router } from "express";
 import db from "../database/createConnection.js"
 import bcrypt from "bcrypt"
 
-const saltRounds = 12;
-
+const saltRounds = 12; 
 const router = Router();
 
 //Simple overview over users.
@@ -17,15 +16,14 @@ router.get("/api/users", async (req, res) => {
 router.post("/api/login", async (req, res) => {
     const { username, password } = req.body;
 
-
     const foundUser = await db.get(`SELECT * FROM users WHERE username = ?;`, [username]);
 
-    if(!foundUser) {
-        return res.status(404).send("User not found. Be sure to type the corret password and username");
+    if(!foundUser || password == null) {
+        return res.status(404).send("User not found. Be sure to type the corret password and username.");
     }
     
     const isSame = await bcrypt.compare(password, foundUser.password);
-   
+    
     if(isSame && !req.session.loggedIn) {
         
         req.session.loggedIn = true;
@@ -34,11 +32,9 @@ router.post("/api/login", async (req, res) => {
     }
     
     if(req.session.loggedIn) {
-        res.send("You are already logged in!");
-    }
-    
+        return res.send("You are already logged in!");
+    }  
 })
-
 
 //End session of login
 router.get("/api/logout", (req, res) => {

@@ -1,9 +1,10 @@
 <script>
-
-
+	
 	import Nav from "./components/Nav.svelte"
 	import { cart } from "./store/cart.js"
-
+	import { isLoggedIn } from "./components/Isloggedin.js"
+    isLoggedIn()
+    
 </script>
 
 <main>

@@ -7,7 +7,6 @@ import db from "../database/createConnection.js"
 
 router.get("/api/beers", async (req, res) => {
     const beers = await db.all("SELECT * FROM beers;");
-    console.log("her")
     res.send({ data: beers });
 });
 

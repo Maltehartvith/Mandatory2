@@ -1,0 +1,1 @@
+export const thePrivitizer = "lel123oeiFårdenIkkeISmå!¤%Bavianer"

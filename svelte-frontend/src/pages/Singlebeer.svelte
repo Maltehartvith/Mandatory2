@@ -3,6 +3,9 @@
     import { cart } from "../store/cart.js";
     import { notifications } from '../notifications/notification.js'
 	import Toast from '../notifications/Toast.svelte'
+    import { isLoggedIn } from "../components/Isloggedin.js"
+    
+    isLoggedIn()
     
 
     let beer = "";
@@ -32,10 +35,6 @@
             } else {
                 cartValue.products.push({ product, amount: quantity });
             }
-
-            console.log(cartValue);
-            console.log(document.getElementById("quantity").value);
-
             return cartValue;
         });
     }
