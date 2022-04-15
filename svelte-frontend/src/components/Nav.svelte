@@ -9,9 +9,12 @@
     import Login from "../pages/Login.svelte";
     import { onDestroy } from 'svelte';
     import { cart } from "../store/cart.js"
+    import Signup from "../pages/Signup.svelte"
+    import PrivateRouteGuard from "../privateRouter/PrivateRouteGuard.svelte";
 
     let cartArray = $cart.products;
     let totalAmount = 0;
+    
 
     const unsubscribe = cart.subscribe(p => {
         totalAmount = 0;
@@ -21,6 +24,7 @@
         });
 	});
 
+    
 	onDestroy(unsubscribe);
 </script>
 
@@ -52,10 +56,11 @@
             <div class="nav-button">
                 <Link to="/">Frontpage</Link>
             </div>
-
+            
             <div class="nav-button">
                 <Link to="/infopage">Info page</Link>
             </div>
+
 
             <div class="nav-button">
                 <Link to="/about">About us</Link>
@@ -74,7 +79,9 @@
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/singlebeer/:name" component={Singlebeer} />
+            
             <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
             <Route path="/cart" component={Cart} />
             
         </div>

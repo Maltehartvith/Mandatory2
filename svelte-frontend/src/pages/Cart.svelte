@@ -38,7 +38,7 @@
         createModalClass = "fading-modal";
     }
 
-
+console.log($cart.products)
 </script>
 
 <h1>lol</h1>
@@ -46,18 +46,28 @@
     <th colspan="2">Product</th>
     <th>Amount</th>
     <th>Price</th>
-    <th />
+    
 
     {#each $cart.products as p}
         <tr>
-            <td class="img-class" style="border-right: none;" >
+            <td class="img-class">
                 <img src={p.product.imgpath} alt={"picture"} />
                 
                 
             </td>
             <!--Hertil -->
-            <td style="border: none; display: flex;">
+            <td class="product-name">
                 {p.product.name}
+                
+                <button
+                    on:click={() => {
+                        createModalClass = "shown-modal";
+                        productToDelete = p.product;
+                    }}
+                    id="remove-button"
+                >
+                    X
+                </button>
             </td>
 
             <td class="quantity-class">
@@ -72,22 +82,13 @@
             
             </td>
 
-            <td class="price-class">{p.product.price}</td>
-            <td class="remove-class">
-                <button
-                    on:click={() => {
-                        createModalClass = "shown-modal";
-                        productToDelete = p.product;
-                    }}
-                >
-                    Remove
-                </button>
-            </td>
+            <td class="price-class">{p.product.price} kr</td>
+            
         </tr>
     {/each}
     <tr>
-        <td colspan="4" style="text-align: right;">Total Price: {totalPrice}</td
-        >
+        <td colspan="3" style="text-align: right; border-right:none">Total Price: </td>
+        <td colspan="2" style="text-align: center; border-left:none">{totalPrice} kr</td>
     </tr>
 </table>
 
@@ -108,11 +109,12 @@
 </div>
 
 <style>
+    /*TABLE CSS*/
     table {
         border-collapse: collapse;
         width: 30%;
         border-radius: 15px;
-        font-family: Comic Sans MS;
+        
     }
 
     th {
@@ -121,7 +123,7 @@
     }
 
     td,
-    th {
+    th, tr {
         border: 1px solid rgb(50, 56, 56);
         text-align: center;
         padding: 5px;
@@ -129,6 +131,9 @@
     
     tr:nth-child(even) {
         background-color: rgba(243, 236, 223, 0.877);
+    }
+    tr:nth-child(odd) {
+        background-color: rgba(224, 223, 221, 0.979);
     }
     tr:last-child{
         background-color: rgba(243, 236, 223, 0.877);
@@ -139,29 +144,56 @@
         left: 25%;
         width: 50%;
     }
+  
+
+    /*SIMPLE CSS FOR SINGLE ELEMENTS AND CLASSES*/
+    .quantity-class, .price-class{
+        width:10%;
+    }
+
+    .remove-class{
+        width: 5%;
+    }
+    #remove-button{
+        box-shadow: 1px 3px #888888;
+        right: -5%;
+        color: red;
+        position: absolute;
+        top: 1%;
+        border-radius: 50%;
+        margin-top: 10px;
+        padding: 0.1em 0.3em 0.1em 0.3em;
+    }
+    
+    input[type="number"]{
+        width: 100%;
+        text-align: center;
+    }
+    .product-name{
+        border: none;     
+        transform: translateX(-6%);
+    }
+
+
+
+    /*IMG CSS*/
     .img-class{
        height: 40%; 
        width: 8%;
        text-align: center;
     }
-    th.img-header, td.img-class{
+    td.img-class{
         border-right-style: none;
     }
     img {
         width: 100%;
         height: 100%;
     }
-    .quantity-class, .price-class, .remove-class{
-        width:10%;
-    }
-    input[type="number"]{
-        width: 100%;
-        text-align: center;
-    }
+
 
     
 
-
+    /* MODAL CSS */
     .shown-modal, .fading-modal {
         background-color: rgba(255, 255, 255, 0.98);
         border: 1px solid black;

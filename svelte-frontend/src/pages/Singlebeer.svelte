@@ -46,6 +46,7 @@
         
         notifications.success(`${quantity}x ${beer.name} was added to the cart `, 1000);
     }
+    
 </script>
 
 <h1>{beer.name}</h1>

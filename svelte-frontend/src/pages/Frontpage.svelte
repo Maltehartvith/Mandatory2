@@ -4,7 +4,7 @@
     import { onMount } from "svelte";
 
     let beers = [];
-
+    
     
 
     onMount(async () => {
@@ -20,20 +20,20 @@
     {#each beers as beer}
         <div class="column">
             <Router primary={false}>
-                <Link to="/singlebeer/{beer.name}" id={beer.name}>
+                <Link to="/singlebeer/{beer.name}">
                     <br />
                     <img
                         src={beer.imgpath}
                         alt={beer.name}
-                        width="50%"
-                        height="50%"
+                        width="auto"
+                        height="80%"
                     />
                     <br />
                     <span>{beer.name}</span>
                     <br />
                     <span>{beer.price} kr</span>
                 </Link>
-                <Route path="/singlebeer/{beer.name}" component={Singlebeer} />
+                
             </Router>
         </div>
     {/each}
@@ -43,12 +43,21 @@
     .row {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 600px;
+        
+        
     }
 
     .column {
         width: 33%;
-        height: 100px;
+        height: 10em;
+        margin: 1em 0em 0.5em;
+        padding: 0em 0em 2em;
+        background-color: hsl(120, 100%, 97%, 0.5);
+
     }
+
 
     /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {

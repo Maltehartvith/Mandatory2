@@ -22,7 +22,7 @@
             style="background: {themes[notification.type]};"
             transition:fly={{ y: 30 }}
         >
-            <div class="content">{notification.message}</div>
+            <div class="content"><pre>{notification.message}</pre></div>
             {#if notification.icon}<i class={notification.icon} />{/if}
         </div>
     {/each}
@@ -47,10 +47,11 @@
     .toast {
         flex: 0 0 auto;
         margin-bottom: 10px;
+        border-radius: 5%;
     }
 
     .content {
-        padding: 10px;
+        padding: 0em 0.5em 0em 0.5em;
         display: block;
         color: white;
         font-weight: 500;
