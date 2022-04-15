@@ -4,6 +4,7 @@ const isInDeleteMode = true;
 
 if (isInDeleteMode){
     db.exec(`DROP TABLE IF EXISTS beers;`);
+    db.exec(`DROP TABLE IF EXISTS users;`);
 }
 
 db.exec(`
@@ -21,6 +22,7 @@ db.exec(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR(70),
     password VARCHAR(32),
+    email VARCHAR(100),
     isadmin BOOLEAN
     );`
 );
@@ -35,7 +37,7 @@ if (isInDeleteMode){
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Fynsk forår', 12.5, 'Har en let smag af hyldeblomst og forår', './images/fynskforaar.png');");
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Årgangsøl', 16.75, 'Kan godt gå hen og blive lidt for sur', './images/aargangsoel.png');");
     db.run("INSERT INTO beers (name, price, description, imgpath) VALUES ('Corona', 12.75, 'Den er sgu lækker nok med en citron i', './images/corona.png');");
-    db.run("INSERT INTO users (username, password, isadmin) VALUES ('Malte', 'Hartvith', true)");
+    db.run("INSERT INTO users (username, password, email, isadmin) VALUES ('Malte', 'Hartvith', 'Malte@hartvith.dk', true)");
 }
 
 

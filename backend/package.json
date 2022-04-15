@@ -1,7 +1,9 @@
 {
   "type": "module",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.3",
+    "express-session": "^1.17.2",
     "helmet": "^5.0.2",
     "nodemon": "^2.0.15",
     "sqlite": "^4.0.25",
