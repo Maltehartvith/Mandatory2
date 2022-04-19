@@ -1,5 +1,5 @@
 import { writable, derived } from "svelte/store"
-
+//implemented from the internet. The famous toast component
 const TIMEOUT = 3000
 
 function createNotificationStore (timeout) {
@@ -32,7 +32,7 @@ function createNotificationStore (timeout) {
     return {
         subscribe,
         send,
-				default: (msg, timeout) => send(msg, "default", timeout),
+		default: (msg, timeout) => send(msg, "default", timeout),
         danger: (msg, timeout) => send(msg, "danger", timeout),
         warning: (msg, timeout) => send(msg, "warning", timeout),
         info: (msg, timeout) => send(msg, "info", timeout),

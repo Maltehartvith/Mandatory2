@@ -1,22 +1,18 @@
 <script>
-    import { Route, Router, Link } from "svelte-navigator";
-    import Singlebeer from "./Singlebeer.svelte";
+    import { Router, Link } from "svelte-navigator";
     import { onMount } from "svelte";
-    import { isLoggedIn } from "../components/Isloggedin.js"
-    isLoggedIn()
+    import { isLoggedIn } from "../privateRouter/IsloggedIn.js";
+    isLoggedIn();
 
     let beers = [];
-    const sotre = localStorage.getItem("lel123oeiFårdenIkkeISmå!¤%Bavianer");
-    console.log("den her", sotre)
-    
 
+    //fetches our beers and inserts them into the beers array, so they can be displayed 
     onMount(async () => {
         const response = await fetch("/api/beers");
         const { data: beersArray } = await response.json();
         beers = beersArray;
     });
-    
-    
+
 </script>
 
 <div class="row">
@@ -32,10 +28,12 @@
                         height="80%"
                     />
                     <br />
-                    <span>{beer.name}</span>
+                    <div class="beer-name-price">
+                    {beer.name}
                     <br />
-                    <span>{beer.price} kr</span>
-                </Link>        
+                    {beer.price} kr
+                    </div>
+                </Link>
             </Router>
         </div>
     {/each}
@@ -54,11 +52,14 @@
         height: 10em;
         margin: 1em 0em 0.5em;
         padding: 0em 0em 2em;
-        background-color: hsl(120, 100%, 97%, 0.5);
-
+        
     }
-
-
+    .beer-name-price{
+        background-color: hsl(0, 0%, 66%, 0.6);
+        text-align: center;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
     /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
         .column {

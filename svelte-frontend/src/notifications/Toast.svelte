@@ -2,12 +2,12 @@
     import { flip } from "svelte/animate";
     import { fly } from "svelte/transition";
     import { notifications } from "./notification.js";
+    //implemented from the internet. The famous toast component
 
     export let themes = {
         success: "#84C991",
         //might use others for later purpose
         danger: "#E26D69",
-        
         warning: "#f0ad4e",
         info: "#5bc0de",
         default: "#aaaaaa",
