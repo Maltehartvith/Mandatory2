@@ -9,10 +9,10 @@ const router = Router();
 
 //Simple overview over users. I have commented it out, because it can be usefull in development, 
 //but otherwise people shouldn't have access to the api/users to see all users and passwords
-/*router.get("/api/users", async (req, res) => {
+router.get("/api/users", async (req, res) => {
     const users = await db.all(`SELECT * FROM users`);
     res.send( { data: users } );
-});*/
+});
 
 //Logs you in via session
 router.post("/api/login", async (req, res) => {
